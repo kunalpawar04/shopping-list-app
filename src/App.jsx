@@ -78,9 +78,27 @@ export default function App() {
     );
   }
 
-  function handleTotalPrice() {
-    return units.filter(item);
-  }
+  // function handleTotalPrice() {
+  //   return units.filter(item);
+  // }
+
+  // const handleTotalPrice = () => {
+  //   return Object.values(itemPrices).reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+  // };
+
+  const handleTotalPrice = () => {
+    const totalPrice = Object.keys(itemPrices).reduce((accumulator, itemId) => {
+      const currentItem = units.find(item => item.id === itemId);
+      if (currentItem && currentItem.quantity > 0 && !currentItem.isSelected) {
+        return accumulator + (currentItem.quantity * itemPrices[itemId]);
+      }
+      return accumulator;
+    }, 0);
+  
+    return totalPrice;
+  };
+  
+  
 
   return (
     <>
@@ -179,7 +197,7 @@ export default function App() {
         </div>
         <div className="total">
           <div className="items-no">Total Items: 6</div>
-          <div className="total-price">Total Price: 0 Rs</div>
+          <div className="total-price">Total Price: {handleTotalPrice()} Rs</div>
         </div>
       </div>
     </>
