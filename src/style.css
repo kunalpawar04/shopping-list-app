@@ -1,0 +1,173 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  margin: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.main-container {
+  background-color: #1c1c1c;
+  width: 500px;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 10px 10px 26px 0px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  background-color: red;
+  color: white;
+  height: 90px;
+  font-size: 24px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-item-box {
+  background: #e8d6d4;
+  color: #353434;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.add-item-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: #f81500;
+  margin-left: 5px;
+  width: 395px;
+  height: 30px;
+  font-size: medium;
+}
+
+.item-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.item-box svg {
+  padding: 2px;
+}
+
+input::placeholder {
+  color: red;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+input:focus {
+  outline: 0;
+}
+
+.item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.item-container {
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  border-bottom: 1px #d2d1d1 solid;
+}
+
+.list-item-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: auto;
+  border-bottom: 1px solid #ccc;
+  padding: 5px;
+}
+
+.item-name {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+  width: 170px;
+}
+
+.item-name svg {
+  margin: 0 5px;
+  color: rgb(255, 255, 0);
+}
+
+.custom-input {
+  max-width: 30px;
+  height: 20px;
+  margin-left: 5px;
+}
+
+.price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.price button{
+  color: black;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 50px;
+  padding: 5px 10px;
+  font-size: 14.5px;
+  font-weight: 400;
+  color: #ec645b;
+  margin-left: 30px;
+}
+
+.total {
+  text-align: right;
+  color: white;
+  font-size: 18px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.delete-item {
+  display: flex;
+  margin-right: 5px;
+}
+
+.delete-item svg{
+  color: black;
+}
+
+button {
+  background: transparent;
+  border: none;
+  margin: 3px;
+  color: #fb0000;
+}
+
+button:focus {
+  outline: 0;
+}
+
+button:hover {
+  cursor: pointer;
+}
