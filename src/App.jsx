@@ -27,6 +27,7 @@ export default function App() {
   // Storing the item names separately to avoid any issues
   const [itemName, setItemName] = useState(""); 
 
+  //To add a new item to units array
   function handleAdd(e) {
     e.preventDefault();
 
@@ -45,6 +46,7 @@ export default function App() {
     }
   }
 
+  //To increase quantity of any item
   function handleQuantityIncrease(itemID) {
     setUnits((currentItemsArray) =>
       currentItemsArray.map((target) =>
@@ -55,6 +57,7 @@ export default function App() {
     );
   }
 
+  //To decrease quantity of any item
   function handleQuantityDecrease(itemID) {
     setUnits((currentItemsArray) =>
       currentItemsArray.map((target) =>
@@ -68,6 +71,7 @@ export default function App() {
     );
   }
 
+  //To tick or untick
   function handleCheck(itemID) {
     setUnits((currentItemsArray) =>
       currentItemsArray.map((target) =>
@@ -78,14 +82,7 @@ export default function App() {
     );
   }
 
-  // function handleTotalPrice() {
-  //   return units.filter(item);
-  // }
-
-  // const handleTotalPrice = () => {
-  //   return Object.values(itemPrices).reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-  // };
-
+  //To display total price
   const handleTotalPrice = () => {
     const totalPrice = Object.keys(itemPrices).reduce((accumulator, itemId) => {
       const currentItem = units.find(item => item.id === itemId);
@@ -98,7 +95,16 @@ export default function App() {
     return totalPrice;
   };
   
-  
+  //To display total quantity
+  const handleTotalQuantity = () => {
+    const totalQuantity = units.reduce((accumulator, currentItem) => {
+      if (!currentItem.isSelected) {
+        return accumulator + currentItem.quantity;
+      }
+      return accumulator;
+    }, 0);
+    return totalQuantity;
+  };  
 
   return (
     <>
@@ -196,7 +202,7 @@ export default function App() {
           </div>
         </div>
         <div className="total">
-          <div className="items-no">Total Items: 6</div>
+          <div className="items-no">Total Items: {handleTotalQuantity()}</div>
           <div className="total-price">Total Price: {handleTotalPrice()} Rs</div>
         </div>
       </div>
