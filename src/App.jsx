@@ -106,6 +106,13 @@ export default function App() {
     return totalQuantity;
   };  
 
+  //To delete the item
+  function handleDeleteItem(itemID) {
+    setUnits((array) => {
+      return array.filter(target => target.id !== itemID) 
+    })
+  }
+
   return (
     <>
       <div className="main-container">
@@ -191,7 +198,7 @@ export default function App() {
                     </button>
                   </div>
                   <div className="delete-item">
-                    <button>
+                    <button onClick={() => handleDeleteItem(unit.id)}>
                       <FontAwesomeIcon icon={faTrash} />
                     </button>
                   </div>
