@@ -9,16 +9,24 @@ import {
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 import "./style.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function App() {
-  //Takes input which adjacent to + icon
-  const [newItem, setNewItem] = useState("");
-
   //Adding the input in our final array
-  const [units, setUnits] = useState([
-    { id: crypto.randomUUID(), name: "item 1", quantity: 1, isSelected: false },
-  ]);
+  const [units, setUnits] = useState( () => 
+    {
+      const localValue = localStorage.getItem("ITEMS");
+      if(localValue == null) {
+        return [{ id: crypto.randomUUID(), name: "item 1", quantity: 1, isSelected: false }];
+      }
+      return JSON.parse(localValue);
+    }
+  );
+
+  //To store the values locally
+  useEffect(() => {
+    localStorage.setItem("ITEMS", JSON.stringify(units));
+  }, [units])
 
   //To store prices of items
   const [itemPrices, setItemPrices] = useState({});
